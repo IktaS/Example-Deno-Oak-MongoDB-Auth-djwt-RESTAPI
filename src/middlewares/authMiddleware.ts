@@ -1,6 +1,6 @@
-import { RouterContext } from "https://deno.land/x/oak/mod.ts";
-import { validateJwt } from "https://deno.land/x/djwt/validate.ts"
-import { auth_key } from "./keys.ts";
+import { RouterContext } from "../deps.ts";
+import { validateJwt } from "../deps.ts"
+import { auth_key } from "../keys.ts";
 
 const authMiddleware = async (ctx : RouterContext, next: any) => {
     

@@ -1,8 +1,8 @@
-import { RouterContext } from "https://deno.land/x/oak/mod.ts";
+import { RouterContext } from "../deps.ts";
 import { User } from "../types.ts";
 import db from "../mongodb.ts";
-import { makeJwt, setExpiration, Jose, Payload } from "https://deno.land/x/djwt/create.ts"
-import { hash, verify } from "https://deno.land/x/argon2/lib/mod.ts";
+import { makeJwt, setExpiration, Jose, Payload } from "../deps.ts"
+import { hash, verify } from "../deps.ts";
 import { auth_key } from "../keys.ts";
 
 const userCollection = db.collection("users");
