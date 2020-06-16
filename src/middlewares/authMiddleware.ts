@@ -24,7 +24,8 @@ const authMiddleware = async (ctx : RouterContext, next: any) => {
         return;
     }
 
-    if (!(await validateJwt(jwt, auth_key, {isThrowing: false}))){
+    const validatedJwtObject = await validateJwt(jwt,auth_key);
+    if (!validatedJwtObject.isValid){
         ctx.response.status = 401;
         ctx.response.body = {
             success: false,

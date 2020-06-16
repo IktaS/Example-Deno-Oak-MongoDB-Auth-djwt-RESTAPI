@@ -8,14 +8,12 @@ export {
 
 export { 
     validateJwt,
-
 } from "https://deno.land/x/djwt/validate.ts"; //need versioning
 
 
 export { 
     MongoClient,
-} from "https://deno.land/x/mongo@v0.7.0/mod.ts";
-
+} from "https://deno.land/x/mongo@v0.8.0/mod.ts";
 
 export { 
     makeJwt, 

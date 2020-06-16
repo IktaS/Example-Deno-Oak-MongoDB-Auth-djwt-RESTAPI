@@ -1,0 +1,24 @@
+import { convertBase64ToUint8Array, convertUint8ArrayToBase64, } from "./base64.ts";
+function addPaddingToBase64url(base64url) {
+    if (base64url.length % 4 === 2)
+        return base64url + "==";
+    if (base64url.length % 4 === 3)
+        return base64url + "=";
+    if (base64url.length % 4 === 1)
+        throw new TypeError("Illegal base64url string!");
+    return base64url;
+}
+function convertBase64urlToBase64(base64url) {
+    return addPaddingToBase64url(base64url).replace(/\-/g, "+").replace(/_/g, "/");
+}
+function convertBase64ToBase64url(base64) {
+    return base64.replace(/=/g, "").replace(/\+/g, "-").replace(/\//g, "_");
+}
+function convertBase64urlToUint8Array(base64url) {
+    return convertBase64ToUint8Array(convertBase64urlToBase64(base64url));
+}
+function convertUint8ArrayToBase64url(uint8Array) {
+    return convertBase64ToBase64url(convertUint8ArrayToBase64(uint8Array));
+}
+export { convertBase64ToBase64url, convertBase64urlToBase64, addPaddingToBase64url, convertBase64urlToUint8Array, convertUint8ArrayToBase64url, };
+//# sourceMappingURL=file:///mnt/d/Dev/Deno/Example-Deno-Oak-MongoDB-Auth-djwt-RESTAPI/deno_dir/gen/https/deno.land/x/djwt/base64/base64url.ts.js.map
